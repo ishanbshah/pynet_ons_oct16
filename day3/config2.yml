@@ -1,0 +1,13 @@
+---
+- name: Configuration
+  hosts: localhost
+  tasks:
+
+  - name: Generation_of_configs_with_snmpv3
+    template: src=access_switch.j2 dest=CFGS/{{ item.hostname }}.txt
+    with_items:
+      - {hostname: test1, secret: enable, ip_addr: 1.2.3.4, default_gateway: 1.2.3.1, access_vlan: 100, snmp_community: bgp, SNMPv3: True}
+      - {hostname: test2, secret: enable, ip_addr: 2.2.3.4, default_gateway: 2.2.3.1, access_vlan: 200, snmp_community: bgp, SNMPv3: True}
+      - {hostname: test3, secret: enable, ip_addr: 3.2.3.4, default_gateway: 3.2.3.1, access_vlan: 300, snmp_community: bgp, SNMPv3: True}
+      - {hostname: test4, secret: enable, ip_addr: 4.2.3.4, default_gateway: 4.2.3.1, access_vlan: 400, snmp_community: bgp, SNMPv3: True}
+      - {hostname: test5, secret: enable, ip_addr: 5.2.3.4, default_gateway: 5.2.3.1, access_vlan: 500, snmp_community: bgp, SNMPv3: True}
